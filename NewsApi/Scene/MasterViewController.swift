@@ -26,8 +26,10 @@ class MasterViewController: UITableViewController {
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
 
-        requestData()
+        addRefreshController()
 
+        ApiService.setup()
+        requestData()
         checkNetworking()
     }
 
@@ -89,12 +91,9 @@ class MasterViewController: UITableViewController {
     //MARK: AppFlow
     func requestData(){
         Utils.showLoader()
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
-        if true {
-            loadDataFromCache()
-        }else{
-            loadDataFromNetwork()
-        }
+        loadDataFromNetwork()
     }
 
     func checkNetworking(){
@@ -107,25 +106,39 @@ class MasterViewController: UITableViewController {
 
     func loadDataFromCache(){
         articles = ApiService.loadCachedNews(Consts.NewsApi.SourceBBC)
+        self.tableView.reloadData()
     }
 
     func loadDataFromNetwork(){
         ApiService.requestNews(Consts.NewsApi.SourceBBC, { (data) in
-            Utils.hideLoader()
+            MBProgressHUD.hide(for: self.view, animated: true)
 
             self.articles = data!
             self.tableView.reloadData()
         }) { (error) in
-            Utils.hideLoader()
+            MBProgressHUD.hide(for: self.view, animated: true)
 
-            let alert = Utils.showMessage(self, "Whoop", "Something went wrong. Please try again later")
-            alert.addAction(UIAlertAction(title: "Use Cache", style: UIAlertActionStyle.destructive, handler: { (action) in
+//            let alert = Utils.showMessage(self, "Whoop", "Something went wrong. Please try again later")
+//            alert.addAction(UIAlertAction(title: "Use Cache", style: UIAlertActionStyle.destructive, handler: { (action) in
+//                self.loadDataFromCache()
+//            }))
+//            alert.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.destructive, handler: { (action) in
+//                self.requestData()
+//            }))
 
-            }))
-            alert.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.destructive, handler: { (action) in
-                self.requestData()
-            }))
+            self.loadDataFromCache()
         }
+    }
+
+    func addRefreshController(){
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+    }
+
+    @objc func refresh(_ sender: Any) {
+        loadDataFromNetwork()
+
+        self.refreshControl?.endRefreshing()
     }
 }
 

@@ -23,7 +23,8 @@ class Utils: NSObject {
     }
 
     static func showLoader(){
-        MBProgressHUD.showAdded(to: Utils.window(), animated: true)
+        let hub = MBProgressHUD.showAdded(to: Utils.window(), animated: true)
+        Utils.window().bringSubview(toFront: hub)
     }
 
     static func hideLoader(){

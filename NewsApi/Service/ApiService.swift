@@ -13,6 +13,10 @@ import RealmSwift
 class ApiService: NSObject {
     static let realm = try! Realm()
 
+    static func setup(){
+        Realm.Configuration.defaultConfiguration.deleteRealmIfMigrationNeeded = true
+    }
+
     static func getSource(_ source : String)->String{
         return Consts.NewsApi.BaseUrl + source + Consts.NewsApi.Order + "&apiKey=" + Consts.NewsApi.ApiKey
     }
@@ -48,6 +52,12 @@ class ApiService: NSObject {
     static func loadCachedNews(_ source : String) -> [Article]{
         let data = realm.objects(Article.self).filter("source = '\(source)'")
         return data.map({$0})
+//        var articles = [Article]()
+//        for item in data{
+//            articles.append(item)
+//        }
+//
+//        return articles
     }
 
     static func clearCache(){
