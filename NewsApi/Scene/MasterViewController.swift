@@ -30,7 +30,6 @@ class MasterViewController: UITableViewController {
 
         ApiService.setup()
         requestData()
-        checkNetworking()
     }
 
     override func viewWillAppear(_ animated: Bool) {

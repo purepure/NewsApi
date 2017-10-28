@@ -43,16 +43,16 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2UW-Hw-RNL">
-                                <rect key="frame" x="10" y="637" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2UW-Hw-RNL">
+                                <rect key="frame" x="177.5" y="355.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PxP-Yi-9kt" firstAttribute="centerY" secondItem="VUw-jc-0yf" secondAttribute="centerY" id="2iP-Pv-aVT"/>
                             <constraint firstItem="PxP-Yi-9kt" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="BZL-zp-L3A"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="2UW-Hw-RNL" secondAttribute="bottom" constant="10" id="Juq-rc-BfP"/>
-                            <constraint firstItem="2UW-Hw-RNL" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="10" id="YMP-Ou-Htj"/>
+                            <constraint firstItem="2UW-Hw-RNL" firstAttribute="centerX" secondItem="VUw-jc-0yf" secondAttribute="centerX" id="NiD-3Z-oVp"/>
+                            <constraint firstItem="2UW-Hw-RNL" firstAttribute="centerY" secondItem="VUw-jc-0yf" secondAttribute="centerY" id="Usz-wI-B3H"/>
                             <constraint firstItem="PxP-Yi-9kt" firstAttribute="centerX" secondItem="VUw-jc-0yf" secondAttribute="centerX" id="d1D-fT-WqH"/>
                             <constraint firstItem="PxP-Yi-9kt" firstAttribute="height" secondItem="svH-Pt-448" secondAttribute="height" id="x5J-lG-L3e"/>
                         </constraints>

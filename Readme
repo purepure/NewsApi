@@ -1,4 +1,7 @@
-**Note:
+**Note: 
+
+**Code was deploy for the newest version of iOS: 11.0. 
+**UI/UX was ignored because this is the test app!!
 
 Flow of app:
 	- when network available, it get data from bbc

@@ -15,8 +15,10 @@ class DetailViewController: UIViewController, WKNavigationDelegate  {
 
     public var article : Article?
     func configureView() {
-        self.title = article?.title
-        loadArticle()
+        if article != nil{
+            self.title = article?.title
+            loadArticle()
+        }
     }
 
     override func viewDidLoad() {
