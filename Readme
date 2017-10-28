@@ -1,0 +1,15 @@
+**Note:
+
+Flow of app:
+	- when network available, it get data from bbc
+	- when network not available, it get data from cache
+	- when network not available, the main page still got data, but detail page cannot because it use webview to load the whole website and did not cached. (the requirement not define this point clearly :D)
+	- there is no paging (not required function)
+	- refreshing is very quickly because of size of data is small. 
+	- the cache was updated everytime it get data from internet, so the refresh function (without paging) is not neccessary. It is about UI/UX, but this is the test, right!? We not mention about it this time. Just make the app run as it is
+	
+
+* there is some part of the requirement is not clear or this is only a test, so I did not polish the app too much.
+* I did not write comment in code (not much) because, the app is quite simple. (It doesn't mean I dont want to comment, but only neccessary)
+
+Hope you like the icon!

@@ -59,7 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Article" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="indicator" destination="2UW-Hw-RNL" id="ATd-Al-tm6"/>
                         <outlet property="webview" destination="PxP-Yi-9kt" id="uUB-jK-b8T"/>
